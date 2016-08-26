@@ -20,3 +20,11 @@ With your page still set to ?refresh, click the sort links on the left to refres
 Once that is done, you can access the page without ?refresh. To refresh your HTML in the future, just visit with ?refresh again.
 
 Feedback is welcome!
+
+## Troubleshooting
+### Initial pages are not saving
+This may be because the application cannot modify the /temp/sections.txt file
+
+Manually edit the file and add a new row for each title;key. You can get the key by browsing to http://<plexip>:<port>/library/sections/
+
+example: Movies;2
