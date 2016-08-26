@@ -1,0 +1,32 @@
+		<div class="col-md-3 col-sm-6 col-xs-12">
+            <article class="material-card Indigo">
+                <h2>
+                    <span>%title%</span>
+					<strong>
+                        <span style="float:left;">%year%</span>
+                        <span style="float:right;"><i class="fa fa-fw fa-clock-o"></i>
+                        <div style="float:right;" id="%duration%RT"></div>
+						<script type="text/javascript">
+							var duration = getDuration(%duration%).toString();
+							document.getElementById('%duration%RT').innerHTML = duration;
+                        </script>
+      					</span>
+                    </strong>
+                </h2>
+                <div class="mc-content">
+                    <div class="img-container">
+                        <img class="img-responsive" src="thumb.php%ThumbUrl%">
+                    </div>
+                    <div class="mc-description">
+                        %summary%
+                    </div>
+                </div>
+                <a class="mc-btn-action">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="mc-footer">
+					<span style="float:left;">%genres%</span>
+					<span style="float:right;">Rated %rating%</span>
+                </div>
+            </article>
+        </div>

@@ -1,0 +1,115 @@
+<!doctype html>
+<!--  
+####### Version 0.0.1 - 08/26/16#####
+# Author: Johnny Moore 
+# Copyright 2016 
+# Main webpage content  -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="An HTML/PHP export of the available titles on my Plex Media Server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>Plexidex: Plex Media Index</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="includes/css/plexstyle.css">
+    <link rel="stylesheet" type="text/css" href="includes/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="includes/css/material-cards.css">
+    <script src="includes/js/jquery-1.11.3.min.js"></script>
+    <script src="includes/js/durationcalc.js"></script>
+        <style>
+			#view-source {
+			  position: fixed;
+			  display: block;
+			  right: 0;
+			  bottom: 0;
+			  margin-right: 40px;
+			  margin-bottom: 40px;
+			  z-index: 900;
+			}
+    </style>
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-900 mdl-color-text--grey-300">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Movies</span>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--grey-900 mdl-color-text--grey-50">
+        <header class="demo-drawer-header">
+          <div class="demo-avatar-dropdown">
+            <span>Plexidex</span>
+            <div class="mdl-layout-spacer"></div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--grey-900">
+			<form id="A-Z" method="post" action=%action%>
+				<input type="hidden" name="sortby" value="all" />
+				<a class="mdl-navigation__link" href="javascript:{}" onclick="document.getElementById('A-Z').submit(); return false;"><i class="mdl-color-text--grey-300 material-icons" role="presentation">sort_by_alpha</i>A-Z</a>
+			</form>
+			<form id="newest" method="post" action=%action%>
+				<input type="hidden" name="sortby" value="newest" />
+				<a class="mdl-navigation__link" href="javascript:{}" onclick="document.getElementById('newest').submit(); return false;"><i class="mdl-color-text--grey-300 material-icons" role="presentation">date_range</i>Release Date</a>
+			</form>
+			<form id="release" method="post" action=%action%>
+				<input type="hidden" name="sortby" value="recentlyAdded" />
+				<a class="mdl-navigation__link" href="javascript:{}" onclick="document.getElementById('release').submit(); return false;"><i class="mdl-color-text--grey-300 material-icons" role="presentation">new_releases</i>Recently Added</a>
+			</form>
+			<form id="recentlyViewed" method="post" action=%action%>
+				<input type="hidden" name="sortby" value="recentlyViewed" />
+				<a class="mdl-navigation__link" href="javascript:{}" onclick="document.getElementById('recentlyViewed').submit(); return false;"><i class="mdl-color-text--grey-300 material-icons" role="presentation">videocam</i>Recently Viewed</a>
+			</form>
+			<form id="unwatched" method="post" action=%action%>
+				<input type="hidden" name="sortby" value="unwatched" />
+				<a class="mdl-navigation__link" href="javascript:{}" onclick="document.getElementById('unwatched').submit(); return false;"><i class="mdl-color-text--grey-300 material-icons" role="presentation">videocam_off</i>Unwatched</a>
+			</form>
+        </nav>
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-800">
+        <div class="mdl-grid demo-content">
+		<div class="row active-with-click">
+
+			%table% 
+
+		 </div>
+        </div>
+      </main>
+    </div>
+    <script>
+		$(function() {
+			$('.material-card > .mc-btn-action').click(function () {
+				var card = $(this).parent('.material-card');
+				var icon = $(this).children('i');
+				icon.addClass('fa-spin-fast');
+	
+				if (card.hasClass('mc-active')) {
+					card.removeClass('mc-active');
+	
+					window.setTimeout(function() {
+						icon
+							.removeClass('fa-arrow-left')
+							.removeClass('fa-spin-fast')
+							.addClass('fa-bars');
+	
+					}, 800);
+				} else {
+					card.addClass('mc-active');
+	
+					window.setTimeout(function() {
+						icon
+							.removeClass('fa-bars')
+							.removeClass('fa-spin-fast')
+							.addClass('fa-arrow-left');
+	
+					}, 800);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
