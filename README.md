@@ -1,6 +1,8 @@
 # Plexidex
 Export Plex Media Server Movie library to HTML/PHP
 
+![v0.0.1 Screenshot](http://i.imgur.com/6dmsB5K.jpg)
+
 ## Change History
 ### v0.0.1
 This is the initial upload to gage the interest of other Plex users.
