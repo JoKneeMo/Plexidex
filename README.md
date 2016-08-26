@@ -25,6 +25,6 @@ Feedback is welcome!
 ### Initial pages are not saving
 This may be because the application cannot modify the /temp/sections.txt file
 
-Manually edit the file and add a new row for each title;key. You can get the key by browsing to http://<plexip>:<port>/library/sections/
+Manually edit the file and add a new row for each title;key. You can get the key by browsing to http://plexip:port/library/sections/
 
 example: Movies;2
