@@ -1,8 +1,12 @@
 <?php 
 
 /** 
+ ***Original***
  * @author Edgar Treml 
- * @copyright 2015 
+ * @copyright 2015
+ ***Modifications*** 
+ * @author Johnny Moore 
+ * @copyright 2016 
  * This script get's the thumbnail and displays it. 
  * This script is neccesarry beacause we don't want anybody to know your Plex Token 
  */ 
