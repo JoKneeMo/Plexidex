@@ -1,32 +1,68 @@
-<div class="col-md-3 col-sm-6 col-xs-12">
-	<article class="material-card Indigo">
-		<h2>
-			<span>%title%</span>
-			<strong>
-				<span style="float:left;">%year%</span>
-				<span style="float:right;"><i class="fa fa-fw fa-clock-o"></i>
-					<div style="float:right;" id="%duration%RT"></div>
-					<script type="text/javascript">
-						var duration = getDuration(%duration%).toString();
-						document.getElementById('%duration%RT').innerHTML = duration;
-					</script>
-				</span>
-			</strong>
-                </h2>
-		<div class="mc-content">
-			<div class="img-container">
-				<img class="img-responsive" src="thumb.php%ThumbUrl%">
-			</div>
-			<div class="mc-description">
-				%summary%
-			</div>
+		<div class="col-md-3 col-sm-6 col-xs-12">
+            <article class="material-card Indigo">
+                <h2>
+                    <span>%title%
+					<span style="float:right; font-size:18px;"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-toggle="modal" data-target="#%VidID%-Modal"><i class="fa fa-ellipsis-v"></i></button></span>
+					</span>
+				</h2>
+                <div class="mc-content">
+                    <div class="img-container">
+                        <img class="img-responsive" src="thumb.php%ThumbUrl%">
+                    </div>
                 </div>
-                <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="mc-footer">
-			<span style="float:left;">%genres%</span>
-			<span style="float:right;">Rated %rating%</span>
-                </div>
-	</article>
+                
+            </article>
+        </div>
+
+		<!-- Modal -->
+<div id="%VidID%-Modal" class="modal fade" tabindex="-1" role="dialog" >
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">%title% (%year%)</h4>
+			</div>
+			<div class="modal-body">
+				<div id="popup-inner">
+					<div id="popup-sidebar">
+						<img src="thumb.php%ThumbUrl%">
+						<ul>
+							<li>Duration: <div style="display:inline;" id="%duration%RT"></div>
+						<script type="text/javascript">
+							var duration = getDuration(%duration%).toString();
+							document.getElementById('%duration%RT').innerHTML = duration;
+                        </script></li>
+							<li>Studio: %studio%</li>
+							<li>Released: %year%</li>
+							<li>Rated: %rating%</li>
+							<li><a href="http://%PlexIP%:%PlexPort%%streamKey%" download="%title% (%year%)")><i class="fa fa-download" aria-hidden="true"></i> Export&nbsp;&nbsp;</a> <a href="http://%PlexIP%:%PlexPort%%streamKey%" target="_blank"><i class="fa fa-play" aria-hidden="true"></i> Stream</a></li>
+						</ul>
+					</div>
+					<div id="popup-content">
+						<h4>"%tagline%"</h4>
+						<div id="popup-summary"><p>%summary%</p></div>
+						<ul id="popup-content-meta">
+							<li><strong>Genre:</strong> %genres%</li>
+							<li><strong>Starring:</strong> %actors%</li>
+							<li><strong>Directed by:</strong> %directors%</li>
+							<li><strong>Written by:</strong> %writers%</li>
+							<li><strong>Video:</strong> Resolution: %resolution%p, Codec:<span style="text-transform:uppercase;"> %vCodec%</span>, Framerate: %frameRate%, Aspect: %aspect%</li>
+							<li><strong>Audio:</strong> Codec: <span style="text-transform:uppercase;">%aCodec%</span>, Channels: %channels%  %AudioLanguages%</li>
+							<li><strong>Subtitles:</strong> %SubLanguages%</li>
+							<li><strong>File:</strong> <div style="display:inline;" id="%VidID%Size"></div>
+							<script type="text/javascript">
+							var sizeInMB = (%size% / (1024*1024)).toFixed(2);
+							document.getElementById('%VidID%Size').innerHTML = sizeInMB;
+							</script>MB @ %bitRate%bps</li>
+							<li><strong>Release Date:</strong> %releaseDate%</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Watch</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
