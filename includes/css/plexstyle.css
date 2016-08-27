@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+* { margin: 0; padding: 0; border: 0; list-style: none; font-weight: normal; }
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  
 }
 .demo-avatar {
   width: 48px;
@@ -252,4 +253,138 @@ _:-ms-input-placeholder, :root .demo-graph {
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+}
+
+
+/*************** Popup Details ***************/
+#popup-overlay {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #282B2E;
+	opacity: 0.6;
+}
+#popup-container {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 745px;
+	max-height: 500px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 0 0 8px #333538;
+	-webkit-box-shadow: 0 0 8px #333538;
+	box-shadow: 0 0 8px #333538;
+}
+#popup-outer {
+	margin-top: -12px;
+	background: #FF9421;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+#popup-header {
+	padding: 8px 13px 8px 13px;
+	background: #E7EBED;
+	border-bottom: 12px solid #E7EBED;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+#popup-header span:hover {
+	color: #FF9421;
+	cursor: pointer;
+}
+#popup-footer {
+	padding: 9px 13px 7px 13px;
+	color: #FFF;
+}
+#popup-footer span:hover {
+	color: #000;
+	cursor: pointer;
+}
+#popup-inner {
+/* 	padding: 14px; */
+	background: #FFF;
+}
+
+#popup-sidebar {
+	float: left;
+	width: 150px;
+}
+#popup-sidebar img {
+	-moz-box-shadow: 0 0 4px #333538;
+	-webkit-box-shadow: 0 0 4px #333538;
+	box-shadow: 0 0 4px #333538;
+	max-width:100%;
+	height:auto;
+}
+#popup-sidebar ul { margin: 14px 0; padding:0px; font-size:12px; line-height:12px;}
+#popup-sidebar li { margin-bottom: 3px; padding:0px;}
+#popup-sidebar a { color:#df7606;}
+
+#popup-content {
+	margin-left: 165px;
+}
+
+#popup-content .rating {
+	display: block;
+	width: 100px;
+	height: 20px;
+	float: right;
+	margin: 8px 1px 0 0;
+	background: url(includes/img/stars.png) no-repeat bottom right;
+}
+
+#popup-content .rating_plex.rating_50 { background-position: -98px 0; }
+#popup-content .rating_plex.rating_45 { background-position: -98px -20px; }
+#popup-content .rating_plex.rating_40 { background-position: -98px -40px; }
+#popup-content .rating_plex.rating_35 { background-position: -98px -60px; }
+#popup-content .rating_plex.rating_30 { background-position: -98px -80px; }
+#popup-content .rating_plex.rating_25 { background-position: -98px -100px; }
+#popup-content .rating_plex.rating_20 { background-position: -98px -120px; }
+#popup-content .rating_plex.rating_15 { background-position: -98px -140px; }
+#popup-content .rating_plex.rating_10 { background-position: -98px -160px; }
+#popup-content .rating_plex.rating_5  { background-position: -98px -180px; }
+#popup-content .rating_plex.rating_0  { background-position: -98px -200px; }
+
+#popup-content .rating_user.rating_50 { background-position: 0 0; }
+#popup-content .rating_user.rating_45 { background-position: 0 -20px; }
+#popup-content .rating_user.rating_40 { background-position: 0 -40px; }
+#popup-content .rating_user.rating_35 { background-position: 0 -60px; }
+#popup-content .rating_user.rating_30 { background-position: 0 -80px; }
+#popup-content .rating_user.rating_25 { background-position: 0 -100px; }
+#popup-content .rating_user.rating_20 { background-position: 0 -120px; }
+#popup-content .rating_user.rating_15 { background-position: 0 -140px; }
+#popup-content .rating_user.rating_10 { background-position: 0 -160px; }
+#popup-content .rating_user.rating_5  { background-position: 0 -180px; }
+#popup-content .rating_user.rating_0  { background-position: 0 -200px; }
+
+#popup-content h3 { font-size: 20px; }
+#popup-content h4 {
+	font-size: 16px;
+	color: #949494;
+	font-style: oblique;
+	font-weight: 600;
+}
+#popup-content p {
+	padding-top: 10px;
+	font-size: 12px;
+	line-height: 17px;
+}
+#popup-content-meta {
+	font-size: 11px;
+	margin-top: 10px;
+}
+#popup-content-meta li {
+	padding: 3px 0;
+	line-height: 14px;
+}
+#popup-content-meta strong {
+	font-weight: bold;
 }
