@@ -1,5 +1,4 @@
 <?php 
-apc_clear_cache();
 /** 
  ***Original***
  * @author Edgar Treml 
@@ -120,16 +119,34 @@ if (!is_file('./temp/sections.txt')) {
             foreach ($PlexMovies->Video as $movie) { 
                 $CurMovieTable=$HtmlTable; 
 
-                $MovieGenres=array(); 
+                $MovieGenres=array();
+				$MovieDirectors=array();
+				$MovieWriters=array();
+				$MovieActors=array();
                 $AudioLanguages=array(); 
                 $SubLanguages=array(); 
-                $VideoResolution = '?? x ??'; 
 
                 $MovieAttrributes = $movie->attributes(); 
+				
                 foreach ($movie->Genre as $genre) { 
                     $genre=iterator_to_array($genre->attributes()); 
                     $MovieGenres[]=(string) $genre['tag']; 
-                } 
+                }
+				
+				foreach ($movie->Director as $director) { 
+                    $director=iterator_to_array($director->attributes()); 
+                    $MovieDirectors[]=(string) $director['tag']; 
+                }
+
+				foreach ($movie->Writer as $writer) { 
+                    $writer=iterator_to_array($writer->attributes()); 
+                    $MovieWriters[]=(string) $writer['tag']; 
+                }
+				
+				foreach ($movie->Role as $actor) { 
+                    $actor=iterator_to_array($actor->attributes()); 
+                    $MovieActors[]=(string) $actor['tag']; 
+                }
                                                
                 $rartingKey=$MovieAttrributes['ratingKey'];                 
                  
@@ -159,18 +176,32 @@ if (!is_file('./temp/sections.txt')) {
                 $CurMovieTable=str_replace('%title%',$MovieAttrributes['title'],$CurMovieTable); 
                 $CurMovieTable=str_replace('%year%',$MovieAttrributes['year'],$CurMovieTable); 
                 $CurMovieTable=str_replace('%summary%',$MovieAttrributes['summary'],$CurMovieTable); 
-                $CurMovieTable=str_replace('%originallyAvailableAt%',$MovieAttrributes['originallyAvailableAt'],$CurMovieTable);
+                $CurMovieTable=str_replace('%releaseDate%',$MovieAttrributes['originallyAvailableAt'],$CurMovieTable);
                 $CurMovieTable=str_replace('%rating%',$MovieAttrributes['contentRating'],$CurMovieTable);
 				$CurMovieTable=str_replace('%duration%',$MovieAttrributes['duration'],$CurMovieTable);
+				$CurMovieTable=str_replace('%tagline%',$MovieAttrributes['tagline'],$CurMovieTable);
 				$CurMovieTable=str_replace('%resolution%',$PlexMovieDetailsMedia['videoResolution'],$CurMovieTable);
-				$CurMovieTable=str_replace('%audio%',$PlexMovieDetailsMedia['audioCodec'],$CurMovieTable);
+				$CurMovieTable=str_replace('%aCodec%',$PlexMovieDetailsMedia['audioCodec'],$CurMovieTable);
+				$CurMovieTable=str_replace('%studio%',$MovieAttrributes['studio'],$CurMovieTable); 				
+				$CurMovieTable=str_replace('%size%',$VideoPart['size'],$CurMovieTable); 
+				$CurMovieTable=str_replace('%bitRate%',$PlexMovieDetailsMedia['bitrate'],$CurMovieTable);
+				$CurMovieTable=str_replace('%vCodec%',$PlexMovieDetailsMedia['videoCodec'],$CurMovieTable);
+				$CurMovieTable=str_replace('%frameRate%',$PlexMovieDetailsMedia['videoFrameRate'],$CurMovieTable);
+				$CurMovieTable=str_replace('%aspect%',$PlexMovieDetailsMedia['aspectRatio'],$CurMovieTable);
+				$CurMovieTable=str_replace('%channels%',$PlexMovieDetailsMedia['audioChannels'],$CurMovieTable);
+				$CurMovieTable=str_replace('%VidID%',$PlexMovieDetailsMedia['id'],$CurMovieTable);
+				$CurMovieTable=str_replace('%container%',$PlexMovieDetailsMedia['container'],$CurMovieTable);
+				$CurMovieTable=str_replace('%streamKey%',$VideoPart['key'],$CurMovieTable);
+				$CurMovieTable=str_replace('%PlexIP%',$PlexServerIP,$CurMovieTable);
+				$CurMovieTable=str_replace('%PlexPort%',$PlexServerPort,$CurMovieTable);
 				
 				
-                 
-
                 $CurMovieTable=str_replace('%AudioLanguages%',implode(', ',$AudioLanguages),$CurMovieTable);
                 $CurMovieTable=str_replace('%SubLanguages%',implode(', ',$SubLanguages),$CurMovieTable); 
-                $CurMovieTable=str_replace('%genres%',implode(', ',$MovieGenres),$CurMovieTable); 
+                $CurMovieTable=str_replace('%genres%',implode(', ',$MovieGenres),$CurMovieTable);
+				$CurMovieTable=str_replace('%directors%',implode(', ',$MovieDirectors),$CurMovieTable);
+				$CurMovieTable=str_replace('%writers%',implode(', ',$MovieWriters),$CurMovieTable);
+				$CurMovieTable=str_replace('%actors%',implode(', ',$MovieActors),$CurMovieTable); 
                 $HtmlOutput.=$CurMovieTable; 
             } 
         } 
