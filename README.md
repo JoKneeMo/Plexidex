@@ -28,7 +28,7 @@ Export Plex Media Server Movie library to HTML/PHP
 
 ![v0.0.1 Screenshot](http://i.imgur.com/6dmsB5K.jpg)
 
-This is the initial upload to gage the interest of other Plex users.
+This is the initial upload to guage the interest of other Plex users.
 
 This package will require a webserver running php, and a network connection to your Plex Media Server
 
@@ -47,20 +47,22 @@ Once that is done, you can access the page without *?refresh*. To refresh your H
 Feedback is welcome!
 ## Road Map
 ### Next Release
-Landing Page
-  Informs PMS connection status
-  Media request contact form
-Options page for config of
-  IP:port
-  X-token
-  Library expiration
-  Hide sections
-  Disable Stream or Export
-Lazy load images for reduced bandwidth
-Manual refresh directly on page
+ * Landing Page
+  * Informs PMS connection status
+  * Media request contact form
+  
+ * Options page for config of
+  * IP:port
+  * X-token
+  * Library expiration
+  * Hide sections
+  * Disable Stream or Export
+  * Lazy load images for reduced bandwidth
+  * Manual refresh directly on page
+
 ### Distant Future Release
-Search
-Category listings (Genre, TV Show seasons)
+ * Search
+ * Category listings (Genre, TV Show seasons)
 
 ## Troubleshooting
 ### Initial pages are not saving
