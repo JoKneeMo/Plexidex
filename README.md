@@ -45,6 +45,22 @@ With your page still set to *?refresh*, click the sort links on the left to refr
 Once that is done, you can access the page without *?refresh*. To refresh your HTML in the future, just visit with *?refresh* again.
 
 Feedback is welcome!
+## Road Map
+### Next Release
+Landing Page
+  Informs PMS connection status
+  Media request contact form
+Options page for config of
+  IP:port
+  X-token
+  Library expiration
+  Hide sections
+  Disable Stream or Export
+Lazy load images for reduced bandwidth
+Manual refresh directly on page
+### Distant Future Release
+Search
+Category listings (Genre, TV Show seasons)
 
 ## Troubleshooting
 ### Initial pages are not saving
@@ -53,3 +69,7 @@ This may be because the application cannot modify the */temp/sections.txt* file
 Manually edit the file and add a new row for each *title;key*. You can get the key by browsing to *http://plexip:port/library/sections/*
 
 example: Movies;2
+
+### Page is outdated
+Append *?refresh* to the end of your URL *webserverpath/index.php?refresh*, then click a listing on the left to refresh it.
+This will need to be done for each listing.
